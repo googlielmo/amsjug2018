@@ -27,7 +27,7 @@ public class MyQuit implements Quit.Command {
 	@Autowired
 	private JetInstance jetInstance;
 	
-    @ShellMethod(key="quit", value="Shutdown")
+    @ShellMethod(key= {"exit", "quit"}, value="Shutdown if idle")
     public void quit() {
 		if (this.jetInstance.getHazelcastInstance().getLifecycleService().isRunning()) {
 			List<Job> jobs = this.jetInstance.getJobs();
