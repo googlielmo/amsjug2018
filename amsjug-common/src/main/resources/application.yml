@@ -1,0 +1,5 @@
+# Kafka servers. Best not to have only one
+bootstrap-servers: 127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094
+
+# Needs quotes to stop warnings about @ character
+my.prompt: "@maven.project.name@"
