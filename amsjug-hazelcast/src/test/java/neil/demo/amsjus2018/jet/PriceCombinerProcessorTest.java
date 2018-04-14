@@ -19,7 +19,7 @@ import neil.demo.amsjug2018.CurrencyPairKey;
 import neil.demo.amsjug2018.CurrencyPairValue;
 import neil.demo.amsjug2018.jet.PriceCombinerProcessor;
 
-public class PriceCombinerTest {
+public class PriceCombinerProcessorTest {
 	
 	/**
 	 * Current price input, ordinal 0

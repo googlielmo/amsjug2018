@@ -24,14 +24,20 @@ public class Constants {
 	public static final String COMMAND_VERB_START = "start";
 	public static final String COMMAND_VERB_STOP = "stop";
 
-	public static final String IMAP_NAME_ALERT = "alert";
 	public static final String IMAP_NAME_COMMAND = "command";
 	public static final String IMAP_NAME_PRICE = "price";
 	public static final String[] IMAP_NAMES = new String[] { 
-			IMAP_NAME_ALERT, IMAP_NAME_COMMAND, IMAP_NAME_PRICE
+			IMAP_NAME_COMMAND, IMAP_NAME_PRICE
+			};
+	public static final String ITOPIC_NAME_ALERT = "alert";
+	public static final String[] ITOPIC_NAMES = new String[] { 
+			ITOPIC_NAME_ALERT
 			};
 
 	// Kafka
 	public static final int TOPIC_CURRENCY_PARTITIONS = 3;
 	public static final String TOPIC_CURRENCY_NAME = "currency";
+	
+	// Viewer panel
+	public static final String PANEL_TITLE = "Please buy Neil a beer";
 }

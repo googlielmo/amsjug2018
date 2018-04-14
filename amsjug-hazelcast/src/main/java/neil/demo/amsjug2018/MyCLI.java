@@ -12,6 +12,7 @@ import org.springframework.shell.standard.ShellMethod;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import com.hazelcast.core.ITopic;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
@@ -30,7 +31,8 @@ public class MyCLI {
     private JetInstance jetInstance;
     private String bootstrapServers;
 
-    public MyCLI(JetInstance jetInstance,
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public MyCLI(JetInstance jetInstance,
                  @Value("${bootstrap-servers}") String bootstrapServers,
                  @Value("${my.prompt}") String myPrompt) {
     	this.jetInstance = jetInstance;
@@ -41,6 +43,13 @@ public class MyCLI {
         for (String iMapName : Constants.IMAP_NAMES) {
             log.info("Initialize IMap '{}'", iMapName);
             this.hazelcastInstance.getMap(iMapName);
+        }
+
+        // Initialise all topics, and listener on each
+        for (String iTopicName : Constants.ITOPIC_NAMES) {
+            log.info("Initialize ITopic '{}'", iTopicName);
+            ITopic iTopic = this.hazelcastInstance.getTopic(iTopicName);
+            iTopic.addMessageListener(new MyTopicListener());
         }
     }
 
