@@ -2,7 +2,9 @@ package neil.demo.amsjug2018;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>A currency pair.
@@ -13,6 +15,8 @@ import lombok.Data;
  */
 @SuppressWarnings("serial")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CurrencyPairKey implements Serializable {
 	
 	private String base;

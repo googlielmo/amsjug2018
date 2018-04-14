@@ -18,12 +18,6 @@ import neil.demo.amsjug2018.jet.MovingAverageProcessorSupplier;
 
 public class MovingAverageProcessorTest {
 	
-	private static final LocalDate AMS_JUG_EVENT = LocalDate.of(2018, 4, 19);
-	private static final BigDecimal ones = new BigDecimal("1.11");
-	private static final BigDecimal twos = new BigDecimal("2.22");
-	private static final BigDecimal threes = new BigDecimal("3.33");
-	private static final BigDecimal fours = new BigDecimal("4.44");
-
 	/**
 	 * "1.11" in isolation has the average of "1.11".
 	 */
@@ -34,10 +28,10 @@ public class MovingAverageProcessorTest {
 		currencyPairValue1.setRate(new BigDecimal("1.11"));
 		
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue1);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
 
 		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(AMS_JUG_EVENT, ones);
+			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.ONES);
 
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(1))
@@ -62,14 +56,14 @@ public class MovingAverageProcessorTest {
 		currencyPairValue3.setRate(new BigDecimal("3.33"));
 		
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue1);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input2
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue2);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue2);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input3
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue3);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue3);
 
 		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(AMS_JUG_EVENT, twos);
+			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
 
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(3))
@@ -117,22 +111,22 @@ public class MovingAverageProcessorTest {
 		currencyPairValue5.setRate(new BigDecimal("5.55"));
 
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue1);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input2
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue2);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue2);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input3
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue3);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue3);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input4
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue4);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue4);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input5
-			= new AbstractMap.SimpleEntry<>(null, currencyPairValue5);
+			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue5);
 
 		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(AMS_JUG_EVENT, twos);
+			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
 		Tuple2<LocalDate, BigDecimal> output2
-			= Tuple2.tuple2(AMS_JUG_EVENT, threes);
+			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.THREES);
 		Tuple2<LocalDate, BigDecimal> output3
-			= Tuple2.tuple2(AMS_JUG_EVENT, fours);
+			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.FOURS);
 		
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(3))

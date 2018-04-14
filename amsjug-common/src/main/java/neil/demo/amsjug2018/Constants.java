@@ -6,8 +6,17 @@ package neil.demo.amsjug2018;
  */
 public class Constants {
 
+	// Currencies
+	public static final String BITCOIN_CODE = "BTC";
+	public static final String US_DOLLARS_CODE = "USD";
+	
+	// Data
+	public static final CurrencyPairKey BTC_USD_CURRENCY_PAIR_KEY
+		= new CurrencyPairKey(BITCOIN_CODE, US_DOLLARS_CODE);
+	
 	// Input file
-	public static final String BTC_USD_FILENAME_PREFIX = "btcusd";
+	public static final String BTC_USD_FILENAME_PREFIX 
+		= BITCOIN_CODE.toLowerCase() + US_DOLLARS_CODE.toLowerCase();
 	public static final String BTC_USD_FILENAME_FROM_DATE = "2017-01-01";
 	
 	// Hazelcast

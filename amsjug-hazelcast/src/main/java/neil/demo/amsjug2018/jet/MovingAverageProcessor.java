@@ -102,7 +102,11 @@ public class MovingAverageProcessor extends AbstractProcessor {
 					Tuple2.tuple2(this.day, average);
 
 			// False if needs to back off and rerun
-			return super.tryEmit(tuple2);
+			boolean sent = super.tryEmit(tuple2);
+			if (sent==false) {
+				count--;
+			}
+			return sent;
 		} else {
 			// Nothing to produce
 			return true;

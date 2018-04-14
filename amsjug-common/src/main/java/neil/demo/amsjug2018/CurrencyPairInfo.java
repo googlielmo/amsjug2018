@@ -2,7 +2,9 @@ package neil.demo.amsjug2018;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>Capture various values about a currency pair,
@@ -16,6 +18,8 @@ import lombok.Data;
  */
 @SuppressWarnings("serial")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CurrencyPairInfo implements Serializable {
 
 	private CurrencyPairValue currentActual;
