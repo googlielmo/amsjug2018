@@ -40,4 +40,12 @@ public class Constants {
 	
 	// Viewer panel
 	public static final String PANEL_TITLE = "Please buy Neil a beer";
+	public static final String PANEL_X_AXIS = "Date";
+	public static final String PANEL_Y_AXIS = "US$";
+	public static final String PANEL_LINE_CURRENT = "Current";
+	public static final String PANEL_LINE_50_POINT = "50 Point";
+	public static final String PANEL_LINE_200_POINT = "200 Point";
+	public static final String[] PANEL_LINES = { 
+			PANEL_LINE_CURRENT, PANEL_LINE_50_POINT, PANEL_LINE_200_POINT
+			};
 }
