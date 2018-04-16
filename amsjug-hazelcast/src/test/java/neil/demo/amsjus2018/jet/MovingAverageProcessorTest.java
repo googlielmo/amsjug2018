@@ -10,10 +10,10 @@ import java.util.Map;
 import org.junit.Test;
 
 import com.hazelcast.jet.core.test.TestSupport;
-import com.hazelcast.jet.datamodel.Tuple2;
 
 import neil.demo.amsjug2018.CurrencyPairKey;
 import neil.demo.amsjug2018.CurrencyPairValue;
+import neil.demo.amsjug2018.TimePrice;
 import neil.demo.amsjug2018.jet.MovingAverageProcessorSupplier;
 
 public class MovingAverageProcessorTest {
@@ -30,8 +30,8 @@ public class MovingAverageProcessorTest {
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
 			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
 
-		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.ONES);
+		TimePrice output1
+			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.ONES);
 
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(1))
@@ -62,8 +62,8 @@ public class MovingAverageProcessorTest {
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input3
 			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue3);
 
-		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
+		TimePrice output1
+			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
 
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(3))
@@ -121,12 +121,12 @@ public class MovingAverageProcessorTest {
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input5
 			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue5);
 
-		Tuple2<LocalDate, BigDecimal> output1
-			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
-		Tuple2<LocalDate, BigDecimal> output2
-			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.THREES);
-		Tuple2<LocalDate, BigDecimal> output3
-			= Tuple2.tuple2(TestConstants.AMS_JUG_EVENT, TestConstants.FOURS);
+		TimePrice  output1
+			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
+		TimePrice  output2
+			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.THREES);
+		TimePrice  output3
+			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.FOURS);
 		
 		TestSupport
 		.verifyProcessor(new MovingAverageProcessorSupplier(3))

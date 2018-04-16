@@ -11,7 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 	
 	static {
+		// No controlling parent window
 		System.setProperty("java.awt.headless", "false");
+		
+		// Reduce contention, data updates all sent to same panel
+		System.setProperty("hazelcast.client.event.thread.count", "1");
 	}
 
     public static void main(String[] args) throws Exception {

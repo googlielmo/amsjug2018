@@ -3,13 +3,14 @@ package neil.demo.amsjug2018.jet;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 
 import com.hazelcast.jet.core.AbstractProcessor;
-import com.hazelcast.jet.datamodel.Tuple2;
 
 import neil.demo.amsjug2018.CurrencyPairKey;
 import neil.demo.amsjug2018.CurrencyPairValue;
+import neil.demo.amsjug2018.TimePrice;
 
 /**
  * <p>A moving average calculation that works on a
@@ -95,14 +96,14 @@ public class MovingAverageProcessor extends AbstractProcessor {
 
 		// Produce output once we have enough input
 		if (count >= this.rates.length) {
+			Date date = TimePrice.convert(this.day);
 			BigDecimal average = this.calculateAverage();
 
 			// Average up to the day stated, assumes no days missed
-			Tuple2<LocalDate, BigDecimal> tuple2 = 
-					Tuple2.tuple2(this.day, average);
+			TimePrice timePrice = new TimePrice(date, average);
 
 			// False if needs to back off and rerun
-			boolean sent = super.tryEmit(tuple2);
+			boolean sent = super.tryEmit(timePrice);
 			if (sent==false) {
 				count--;
 			}
@@ -139,4 +140,5 @@ public class MovingAverageProcessor extends AbstractProcessor {
 		return average;
 	}
 
+	
 }

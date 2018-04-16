@@ -1,9 +1,9 @@
 package neil.demo.amsjug2018;
 
+import java.time.LocalDateTime;
+
 import com.hazelcast.core.Message;
 import com.hazelcast.core.MessageListener;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * <p>Topic logging listener.
@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
  * </p>
  */
 @SuppressWarnings("rawtypes")
-@Slf4j
 public class MyTopicListener implements MessageListener {
 
 	/**
@@ -26,11 +25,16 @@ public class MyTopicListener implements MessageListener {
 	@Override
 	public void onMessage(Message message) {
 		String payload = message.getMessageObject().toString();
-		log.info("");
-		log.info("***********************************************");
-		log.info("Topic '{}' : '{}'", message.getSource(), payload);
-		log.info("***********************************************");
-		log.info("");
+		System.out.println("");
+		System.out.println("**************************************************"
+				+ " ALERT "
+				+ "**************************************************");
+		System.out.format("%s: Topic '%s': %s%n",
+				LocalDateTime.now(), message.getSource(), payload);
+		System.out.println("**************************************************"
+				+ " ALERT "
+				+ "**************************************************");
+		System.out.println("");
 	}
 
 }
