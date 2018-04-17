@@ -39,8 +39,8 @@ public class ApplicationInitialiser implements CommandLineRunner {
         }
 		
         // Connect IMap changes to the panel
-        IMap<?, ?> priceMap = this.hazelcastInstance.getMap(Constants.IMAP_NAME_PRICE);
-        priceMap.addEntryListener(new PricePanelListener(), INCLUDE_VALUE);
+        IMap<?, ?> btcUsdMap = this.hazelcastInstance.getMap(Constants.IMAP_NAME_BTC_USD);
+        btcUsdMap.addEntryListener(new PricePanelListener(), INCLUDE_VALUE);
 	}
 	
 }

@@ -46,12 +46,12 @@ public class AlertToTopicProcessor extends AbstractProcessor {
 	 * to a Hazelcast {@link com.hazelcast.core.IMap IMap}.
 	 * </p>
 	 * <p>The entry key has the date of the price cross and the direction,
-	 * upwards (good) or downwards (good). The entry value has the
+	 * golden cross (good) or death cross (good). The entry value has the
 	 * values for the 50-point and 200-point averages at the cross.
 	 * </p>
 	 * <p>Both upwards and downwards trends are good if you're a trader,
 	 * they make money when the price changes. Perhaps not so good if you
-	 * are an investor.
+	 * are an investor to see the death cross.
 	 * </p>
 	 * 
 	 * @param item Raw data to format and publish
@@ -63,17 +63,17 @@ public class AlertToTopicProcessor extends AbstractProcessor {
 		ITopic<String> alertTopic = this.hazelcastInstance.getTopic(Constants.ITOPIC_NAME_ALERT);
 		
 		// Re-cast input
-		Entry<Tuple2<LocalDate, Boolean>,Tuple2<BigDecimal, BigDecimal>> entry =
-				(Entry<Tuple2<LocalDate, Boolean>, Tuple2<BigDecimal, BigDecimal>>) item;
+		Entry<Tuple2<LocalDate, String>,Tuple2<BigDecimal, BigDecimal>> entry =
+				(Entry<Tuple2<LocalDate, String>, Tuple2<BigDecimal, BigDecimal>>) item;
 
 		// Fields from input
 		LocalDate day = entry.getKey().getKey();
-		boolean upward = entry.getKey().getValue();
+		String trend = entry.getKey().getValue();
 		BigDecimal current50point = entry.getValue().getKey();
 		BigDecimal current200point = entry.getValue().getValue();
 
 		// Alert text
-		String cross = (upward ? "Golden Cross" : "Death Cross");
+		String cross = (trend.equalsIgnoreCase("upward") ? "Golden Cross" : "Death Cross");
 		String alert = cross + " at " + day 
 					+ " (50-point $" + current50point + ", 200-point $" + current200point + ")";
 

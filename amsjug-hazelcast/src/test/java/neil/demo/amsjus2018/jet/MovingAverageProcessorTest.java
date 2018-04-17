@@ -2,7 +2,7 @@ package neil.demo.amsjus2018.jet;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
@@ -28,7 +28,7 @@ public class MovingAverageProcessorTest {
 		currencyPairValue1.setRate(new BigDecimal("1.11"));
 		
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
+			= new SimpleImmutableEntry<>(null, currencyPairValue1);
 
 		TimePrice output1
 			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.ONES);
@@ -56,11 +56,11 @@ public class MovingAverageProcessorTest {
 		currencyPairValue3.setRate(new BigDecimal("3.33"));
 		
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
+			= new SimpleImmutableEntry<>(null, currencyPairValue1);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input2
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue2);
+			= new SimpleImmutableEntry<>(null, currencyPairValue2);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input3
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue3);
+			= new SimpleImmutableEntry<>(null, currencyPairValue3);
 
 		TimePrice output1
 			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);
@@ -111,15 +111,15 @@ public class MovingAverageProcessorTest {
 		currencyPairValue5.setRate(new BigDecimal("5.55"));
 
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input1
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue1);
+			= new SimpleImmutableEntry<>(null, currencyPairValue1);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input2
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue2);
+			= new SimpleImmutableEntry<>(null, currencyPairValue2);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input3
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue3);
+			= new SimpleImmutableEntry<>(null, currencyPairValue3);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input4
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue4);
+			= new SimpleImmutableEntry<>(null, currencyPairValue4);
 		Map.Entry<CurrencyPairKey, CurrencyPairValue> input5
-			= new AbstractMap.SimpleImmutableEntry<>(null, currencyPairValue5);
+			= new SimpleImmutableEntry<>(null, currencyPairValue5);
 
 		TimePrice  output1
 			= new TimePrice(TestConstants.AMS_JUG_EVENT, TestConstants.TWOS);

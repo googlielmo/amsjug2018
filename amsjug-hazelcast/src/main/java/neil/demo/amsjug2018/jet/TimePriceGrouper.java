@@ -111,7 +111,7 @@ public class TimePriceGrouper implements Serializable {
 		// Should not end up with more than 2
 		if (this.ordinal0_date.size() > 2
 				|| this.ordinal1_date.size() > 2) {
-			log.error("get() has {} and {}", this.ordinal0_date.size(), this.ordinal1_date.size());
+			log.trace("get() has {} and {}", this.ordinal0_date.size(), this.ordinal1_date.size());
 			return null;
 		}
 		

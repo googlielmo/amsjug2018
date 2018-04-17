@@ -50,12 +50,17 @@ public class TimePrice implements Serializable {
 	 * <p>Convenience method to turn a {@link java.time.LocalDate LocalDate}
 	 * into {@link java.util.Date Date}.
 	 * </p>
-	 * 
-	 * @param day
-	 * @return
 	 */
 	public static Date convert(LocalDate localDate) {
 		return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+	}
+	/**
+	 * <p>Convenience method to turn a {@link java.time.LocalDate LocalDate}
+	 * into {@link java.util.Date Date}.
+	 * </p>
+	 */
+	public static LocalDate convert(Date date) {
+		return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 }
