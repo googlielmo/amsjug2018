@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /Applications/kafka_2.11-1.0.0/bin
+cd /usr/local/opt/kafka_2.11-1.0.0/bin
 
 export TOPIC=currency
 echo =====================
